@@ -14,7 +14,7 @@ npm install stream-mmmagic
 
 ## Use
 ```
-var magic = require('stream-magic');
+var magic = require('stream-mmmagic');
 
 var input = fs.createReadStream('somefile.csv');
 
