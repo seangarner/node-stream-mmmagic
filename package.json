@@ -1,6 +1,6 @@
 {
   "name": "stream-mmmagic",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Node module to sniff the start of a stream (non-destructively) to detect the file type and encoding",
   "main": "lib/stream-mmmagic.js",
   "scripts": {
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/seangarner/node-stream-mmmagic",
   "dependencies": {
-    "buffer-peek-stream": "^0.1.1",
+    "buffer-peek-stream": "^0.2.0",
     "mmmagic": "^0.3.11"
   }
 }
