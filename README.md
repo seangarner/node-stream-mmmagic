@@ -15,6 +15,8 @@ npm install stream-mmmagic
 ## Use
 ```
 var magic = require('stream-mmmagic');
+// optional: provide custom magic-file
+magic.config.magicFile = 'path/to/custom/magic/file';
 
 var input = fs.createReadStream('somefile.csv');
 
