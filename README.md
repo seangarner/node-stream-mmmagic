@@ -15,8 +15,6 @@ npm install stream-mmmagic
 ## Use
 ```
 var magic = require('stream-mmmagic');
-// optional: provide custom magic-file
-magic.config.magicFile = 'path/to/custom/magic/file';
 
 var input = fs.createReadStream('somefile.csv');
 
@@ -33,6 +31,16 @@ magic(input, function (err, mime, output) {
 //- TYPE: text/plain
 //- ENCODING: us-ascii
 //- <the file content>
+```
+
+### Custom Magic File
+A magic file is bundled with the mmmagic npm module but if you want to use your own then set
+`magic.config.magicFile` before calling `magic`.
+
+```
+magic.config.magicFile = '/path/to/custom/magic/file';
+
+magic(input, callback); // uses above magic file
 ```
 
 ## NOTICE
