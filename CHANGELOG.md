@@ -1,4 +1,10 @@
-# truncate-stream changelog
+# stream-mmmagic changelog
+
+## 1.0.0 (2016/08/31)
+is backwards compatible with `0.2.0`; bump signifies this is now considered stable after being used 100,000s of times
+in a production environment.
+
+  - add support for node 5 & 6
 
 ## 0.2.0 (2014/11/12)
 **backwards incompatible** using semver; api not stable until 1.0.0

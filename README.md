@@ -8,12 +8,12 @@ get the first 16KB of the stream then send that to mmmagic (which uses libmagic)
 finished the peek stream will unshift the bytes it's received back onto the origin stream thereby
 making it appear as if the origin stream was new.
 
-```
+```bash
 npm install stream-mmmagic
 ```
 
 ## Use
-```
+```js
 var magic = require('stream-mmmagic');
 
 var input = fs.createReadStream('somefile.csv');
@@ -37,15 +37,11 @@ magic(input, function (err, mime, output) {
 A magic file is bundled with the mmmagic npm module but if you want to use your own then set
 `magic.config.magicFile` before calling `magic`.
 
-```
+```js
 magic.config.magicFile = '/path/to/custom/magic/file';
 
 magic(input, callback); // uses above magic file
 ```
-
-## NOTICE
-This uses [buffer-peek-stream](https://github.com/seangarner/node-buffer-peek-stream) under the
-covers which is, at the moment, best described as experimental.
 
 ## LICENSE
 MIT
