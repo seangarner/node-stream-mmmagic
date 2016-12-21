@@ -1,5 +1,12 @@
 # stream-mmmagic changelog
 
+## 1.0.1 (2016/12/21)
+Possibility to specify options in streamMmmagic function call.
+Currently supported options are:
+  - `splitMerge` (boolean, default true): return an object containing mime type and encoding separately, rather than a simple string (i.e. `MIME; encoding=ENCODING`)
+  - `magicFile` (file path, default null): custon mmmagic file, same as setting the `magic.config.magicFile`
+The options argument is optional. streamMmmagic(input, callback) will use default options values.
+
 ## 1.0.0 (2016/08/31)
 is backwards compatible with `0.2.0`; bump signifies this is now considered stable after being used 100,000s of times
 in a production environment.

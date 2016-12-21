@@ -31,6 +31,18 @@ magic(input, function (err, mime, output) {
 //- TYPE: text/plain
 //- ENCODING: us-ascii
 //- <the file content>
+
+magic(input, { splitMime: false }, function (err, mime, output) {
+  if (err) throw err;
+
+  console.log('MIME: ', mime);
+
+  // will print the *whole* file
+  output.pipe(process.stdout);
+});
+
+// MIME: text/plain; encoding=us-ascii
+
 ```
 
 ### Custom Magic File
