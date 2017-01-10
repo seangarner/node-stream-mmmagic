@@ -43,5 +43,17 @@ magic.config.magicFile = '/path/to/custom/magic/file';
 magic(input, callback); // uses above magic file
 ```
 
+### Original Mime String
+Use `{splitMime: false}` option to get back the original mime string instead of a split object.
+```js
+magic(input, {splitMime: false}, function (err, mime, output) {
+  if (err) throw err;
+
+  console.log(mime);
+});
+//- text/plain; charset=us-ascii
+```
+
+
 ## LICENSE
 MIT

@@ -46,4 +46,13 @@ describe('stream-mmmagic', () => {
     });
   });
 
+  it('should callback a mime string if splitMime:false', (done) => {
+    magic(getStream(), {splitMime: false}, function (err, mime, output) {
+      if (err) return done(err);
+      expect(mime).to.equal('text/plain; charset=utf-8');
+      done();
+    });
+
+  });
+
 });

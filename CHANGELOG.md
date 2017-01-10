@@ -1,7 +1,8 @@
 # stream-mmmagic changelog
 
-## NEXT
+## 1.1.0 (2017/01/09)
 
+  - add `splitMime: false` option for #5
   - add tests
 
 ## 1.0.0 (2016/08/31)
