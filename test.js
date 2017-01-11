@@ -1,12 +1,12 @@
-var fs = require('fs');
-var magic = require('./');
-var stream = require('stream');
-var expect = require('chai').expect;
-var concat = require('concat-stream');
+const fs = require('fs');
+const magic = require('./');
+const stream = require('stream');
+const expect = require('chai').expect;
+const concat = require('concat-stream');
 
 describe('stream-mmmagic', () => {
   function getStream() {
-    var rs = fs.createReadStream(__filename, {encoding: 'utf8'});
+    const rs = fs.createReadStream(__filename, {encoding: 'utf8'});
     after(() => {
       rs.close();
     });
@@ -14,7 +14,7 @@ describe('stream-mmmagic', () => {
   }
 
   it('should callback a Readable stream', (done) => {
-    magic(getStream(), function (err, mime, output) {
+    magic(getStream(), (err, mime, output) => {
       if (err) return done(err);
       expect(output).to.be.an.instanceof(stream.Readable);
       done();
@@ -23,7 +23,7 @@ describe('stream-mmmagic', () => {
 
   it('should not callback a readstream with partially read data', (done) => {
     getStream().pipe(concat((sansMagic) => {
-      magic(getStream(), function (err, mime, output) {
+      magic(getStream(), (err, mime, output) => {
         if (err) return done(err);
         output.setEncoding('utf8');
         output.pipe(concat((withMagic) => {
@@ -35,7 +35,7 @@ describe('stream-mmmagic', () => {
   });
 
   it('should callback a mime type split into type and encoding', (done) => {
-    magic(getStream(), function (err, mime, output) {
+    magic(getStream(), (err, mime, output) => {
       if (err) return done(err);
       expect(mime).to.eql({
         type: 'text/plain',
@@ -47,12 +47,11 @@ describe('stream-mmmagic', () => {
   });
 
   it('should callback a mime string if splitMime:false', (done) => {
-    magic(getStream(), {splitMime: false}, function (err, mime, output) {
+    magic(getStream(), {splitMime: false}, (err, mime, output) => {
       if (err) return done(err);
       expect(mime).to.equal('text/plain; charset=utf-8');
       done();
     });
-
   });
 
 });
