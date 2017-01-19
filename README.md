@@ -33,14 +33,13 @@ magic(input, function (err, mime, output) {
 //- <the file content>
 ```
 
-### Custom Magic File
-A magic file is bundled with the mmmagic npm module but if you want to use your own then set
-`magic.config.magicFile` before calling `magic`.
+### `options.magicFile` Custom Magic File
+A magic file is bundled with the mmmagic npm module but if you want to use your own then set the path to the file on
+the `magicFile` option.
 
 ```js
-magic.config.magicFile = '/path/to/custom/magic/file';
-
-magic(input, callback); // uses above magic file
+const magicFile = '/usr/share/magic';
+magic(input, {magicFile}, callback);
 ```
 
 ### Original Mime String

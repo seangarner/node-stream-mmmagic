@@ -1,7 +1,14 @@
 # stream-mmmagic changelog
 
-## NEXT
+## NEXT_MAJOR
+**Major Changes**
 
+  - removed support for setting `require('stream-mmmagic').config.magicFile`
+    - `magicFile` option added which can be used during each call instead
+
+**Minor Changes**
+
+  - add `magicFile` option which replaces fragile module `config.magicFile` setting
   - add caching of `mmmagic` objects instead of recreating them for every new stream
     + Makes the (safe?) assumption that nobody is using this module with large numbers of unique magic files
 
