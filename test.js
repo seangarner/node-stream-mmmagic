@@ -54,4 +54,16 @@ describe('stream-mmmagic', () => {
     });
   });
 
+  it('should create new Magic object if a magicFile is specified', (done) => {
+    magic.config.magicFile = 'node_modules/mmmagic/magic/magic.mgc';
+    magic(getStream(), (err, mime, output) => {
+      if (err) return done(err);
+      expect(mime).to.eql({
+        type: 'text/plain',
+        encoding: 'utf-8'
+      });
+      done();
+    });
+  });
+
 });
