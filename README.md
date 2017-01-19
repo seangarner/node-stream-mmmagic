@@ -51,6 +51,30 @@ magic(input, {splitMime: false}, (err, mime, output) => {
 //- text/plain; charset=us-ascii
 ```
 
+### `options.peekBytes` Control Bytes Used for Analysis
+As the input stream starts to get data the first 1KB is buffered and sent to libmagic for analysis to get file type and
+encoding.  1KB is more than enough for detecting file type with a standard `magicFile` but the reliabilty of getting the
+correct encoding is increased the more bytes are buffered.  The tradeoff is performance and memory use.
+
+Set `peekBytes` to the number of bytes you want buffered and sent to libmagic.  For best results do not set below 256
+bytes.
+
+```js
+// somefile.txt is a utf8 file where the first doublebyte char is after the first 1KB of the file
+var input = fs.createReadStream('somefile.txt');
+
+magic(input, {peekBytes: 1024}, (err, mime, output) => {
+  console.log(mime);
+});
+// not detected as utf8 because the first doublebyte char wasn't until later in the stream
+//- text/plain; charset=us-ascii
+
+magic(input, {peekBytes: 16384}, (err, mime, output) => {
+  console.log(mime);
+});
+// now we're peeking 16KB into the file libmagic gets that first doublebyte char and knows it's utf8
+//- text/plain; charset=utf8
+```
 
 ## LICENSE
 MIT
