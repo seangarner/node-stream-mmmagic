@@ -42,12 +42,10 @@ const magicFile = '/usr/share/magic';
 magic(input, {magicFile}, callback);
 ```
 
-### Original Mime String
+### `options.splitMime` Original Mime String
 Use `{splitMime: false}` option to get back the original mime string instead of a split object.
 ```js
-magic(input, {splitMime: false}, function (err, mime, output) {
-  if (err) throw err;
-
+magic(input, {splitMime: false}, (err, mime, output) => {
   console.log(mime);
 });
 //- text/plain; charset=us-ascii
