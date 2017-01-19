@@ -1,5 +1,10 @@
 # stream-mmmagic changelog
 
+## NEXT
+
+  - add caching of `mmmagic` objects instead of recreating them for every new stream
+    + Makes the (safe?) assumption that nobody is using this module with large numbers of unique magic files
+
 ## 1.1.0 (2017/01/09)
 
   - add `splitMime: false` option for #5
