@@ -3,6 +3,5 @@ node_js:
   - "stable"
   - "6"
   - "4"
-  - "0.12"
 script:
   - npm test
