@@ -1,18 +1,15 @@
 # stream-mmmagic changelog
 
-## NEXT_MAJOR
+## 2.0.0 (2017/01/30)
 **Major Changes**
 
   - removed support for setting `require('stream-mmmagic').config.magicFile`
     - `magicFile` option added which can be used during each call instead
-  - now scans only the first 1K (down from 16K) of the stream to do magic which may have an impact on accuracy of
-    identifying correct encoding
-    - use new `peekBytes` option to fine tune for your use case
 
 **Minor Changes**
 
   - add `peekBytes` option to control how many bytes of the start of the stream are sent to libmagic
-    + default is sufficient for detecting type, but more (~16K) may improve reliability of getting correct encoding
+    + default is sufficient for detecting type, but more may improve reliability of getting correct encoding
   - add `magicFile` option which replaces fragile module `config.magicFile` setting
   - add caching of `mmmagic` objects instead of recreating them for every new stream
     + Makes the (safe?) assumption that nobody is using this module with large numbers of unique magic files
