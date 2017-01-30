@@ -52,7 +52,7 @@ magic(input, {splitMime: false}, (err, mime, output) => {
 ```
 
 ### `options.peekBytes` Control Bytes Used for Analysis
-As the input stream starts to get data the first 1KB is buffered and sent to libmagic for analysis to get file type and
+As the input stream starts to get data the first 16KB is buffered and sent to libmagic for analysis to get file type and
 encoding.  1KB is more than enough for detecting file type with a standard `magicFile` but the reliabilty of getting the
 correct encoding is increased the more bytes are buffered.  The tradeoff is performance and memory use.
 
