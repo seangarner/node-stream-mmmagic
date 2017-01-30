@@ -1,4 +1,5 @@
 # node-stream-mmmagic
+[![Build Status](https://travis-ci.org/seangarner/node-stream-mmmagic.svg?branch=master)](https://travis-ci.org/seangarner/node-stream-mmmagic)
 
 Node module to sniff the start of a stream (non-destructively) to detect the file type and encoding
 when you don't have the luxury of being able to restart the stream again.
