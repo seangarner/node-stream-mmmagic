@@ -1,5 +1,9 @@
 # stream-mmmagic changelog
 
+## 2.1.0 (2018/09/19)
+
+  - support node 10
+
 ## 2.0.0 (2017/01/30)
 **Major Changes**
 
