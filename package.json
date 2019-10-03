@@ -30,8 +30,8 @@
     "mmmagic": "^0.5.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.2.0",
     "concat-stream": "^1.6.0",
-    "mocha": "^3.2.0"
+    "mocha": "^6.2.1"
   }
 }

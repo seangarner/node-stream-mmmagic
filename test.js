@@ -66,4 +66,21 @@ describe('stream-mmmagic', () => {
     });
   });
 
+  describe('promise', () => {
+    it('should return a promise', async () => {
+      expect(magic.promise(getStream())).to.be.a('promise');
+    });
+
+    it('should resolve an array with the mime type & output stream', async () => {
+      const result = await magic.promise(getStream());
+      expect(result).to.be.an('array').with.lengthOf(2);
+      const [mime, output] = result;
+      expect(mime).to.eql({
+        type: 'text/plain',
+        encoding: 'utf-8' // 🦄 force utf8 encoding of this file for the test
+      });
+      expect(output).to.be.an.instanceof(stream.Readable);
+    });
+  });
+
 });

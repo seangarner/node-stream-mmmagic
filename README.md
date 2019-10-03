@@ -13,7 +13,23 @@ making it appear as if the origin stream was new.
 npm install stream-mmmagic
 ```
 
-## Use
+### Use
+```js
+const magic = require('stream-mmmagic');
+const input = fs.createReadStream('somefile.csv');
+
+const [mime, output] = magic.promise(input);
+console.log('TYPE:', mime.type);
+console.log('ENCODING:', mime.encoding);
+output.pipe(process.stdout);
+
+//- TYPE: text/plain
+//- ENCODING: us-ascii
+//- <the file content>
+```
+
+
+## Use (Callbacks)
 ```js
 var magic = require('stream-mmmagic');
 
@@ -46,9 +62,8 @@ magic(input, {magicFile}, callback);
 ### `options.splitMime` Original Mime String
 Use `{splitMime: false}` option to get back the original mime string instead of a split object.
 ```js
-magic(input, {splitMime: false}, (err, mime, output) => {
-  console.log(mime);
-});
+const [mime] = magic.promise(input, {splitMime: false});
+console.log(mime);
 //- text/plain; charset=us-ascii
 ```
 
@@ -62,19 +77,17 @@ bytes.
 
 ```js
 // somefile.txt is a utf8 file where the first doublebyte char is after the first 1KB of the file
-var input = fs.createReadStream('somefile.txt');
+const input = fs.createReadStream('somefile.txt');
 
-magic(input, {peekBytes: 1024}, (err, mime, output) => {
-  console.log(mime);
-});
+const [{encoding}, output] = magic.promise(input, {peekBytes: 1024});
+console.log(encoding);
 // not detected as utf8 because the first doublebyte char wasn't until later in the stream
-//- text/plain; charset=us-ascii
+//- us-ascii
 
-magic(input, {peekBytes: 16384}, (err, mime, output) => {
-  console.log(mime);
-});
+const [{encoding}, output] = magic.promise(input, {peekBytes: 16384});
+console.log(encoding);
 // now we're peeking 16KB into the file libmagic gets that first doublebyte char and knows it's utf8
-//- text/plain; charset=utf8
+//- charset=utf8
 ```
 
 ## LICENSE
