@@ -1,5 +1,11 @@
 # stream-mmmagic changelog
 
+## 2.2.0 (2019/10/03)
+
+  - add promise interface
+  - drop support for node 4 & 6 (it might still work - but it's no longer tested)
+  - added node 12 to test
+
 ## 2.1.0 (2018/09/19)
 
   - support node 10
