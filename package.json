@@ -1,6 +1,6 @@
 {
   "name": "stream-mmmagic",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "sniff the start of a stream (non-destructively) to detect the file type and encoding",
   "main": "lib/stream-mmmagic.js",
   "scripts": {
