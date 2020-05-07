@@ -18,7 +18,7 @@ npm install stream-mmmagic
 const magic = require('stream-mmmagic');
 const input = fs.createReadStream('somefile.csv');
 
-const [mime, output] = magic.promise(input);
+const [mime, output] = await magic.promise(input);
 console.log('TYPE:', mime.type);
 console.log('ENCODING:', mime.encoding);
 output.pipe(process.stdout);
