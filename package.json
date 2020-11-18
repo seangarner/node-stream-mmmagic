@@ -3,6 +3,7 @@
   "version": "2.2.0",
   "description": "sniff the start of a stream (non-destructively) to detect the file type and encoding",
   "main": "lib/stream-mmmagic.js",
+  "types": "lib/stream-mmmagic.d.ts",
   "scripts": {
     "test": "mocha test.js"
   },
