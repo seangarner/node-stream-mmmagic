@@ -1,5 +1,11 @@
 # stream-mmmagic changelog
 
+## 2.3.0 (2021/07/03)
+
+  - add typescript types
+  - bump deps
+  - switch from travis to github actions
+
 ## 2.2.0 (2019/10/03)
 
   - add promise interface
