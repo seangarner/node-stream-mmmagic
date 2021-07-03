@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/seangarner/node-stream-mmmagic",
   "dependencies": {
-    "buffer-peek-stream": "^1.0.0",
+    "buffer-peek-stream": "^1.1.0",
     "mmmagic": "^0.5.0"
   },
   "devDependencies": {
