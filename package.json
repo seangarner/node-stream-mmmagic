@@ -28,7 +28,8 @@
   "homepage": "https://github.com/seangarner/node-stream-mmmagic",
   "dependencies": {
     "buffer-peek-stream": "^1.1.0",
-    "mmmagic": "^0.5.0"
+    "mmmagic": "^0.5.0",
+    "@types/node": "*"
   },
   "devDependencies": {
     "chai": "^4.3.4",
